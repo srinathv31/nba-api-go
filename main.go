@@ -120,7 +120,9 @@ func getSchedule(c *gin.Context) {
 	team := c.Param("team")
 	year := c.Param("year")
 
-	result := c.MustGet("resultData").(d.Data)[team][year].Schedule
+    fmt.Printf("Getting Schedule for the %s - %s", year, team)
+	
+    result := c.MustGet("resultData").(d.Data)[team][year].Schedule
 
     if result.GameMap == nil {
 		errorMsg := fmt.Sprintf("Schedule Data was not found for the %s - %s", year, team)
